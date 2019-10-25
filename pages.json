@@ -1,0 +1,248 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"bz": "首页",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"backgroundColor": "#001839",
+				"enablePullDownRefresh": true //开启下拉刷新
+		
+			}
+		},{
+			"path": "pages/commodity/querendingdan",
+			"bz": "确认订单",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "确认订单",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		},{
+			"path": "pages/shiping/index",
+			"bz": "视频",
+			"style": {
+				"navigationBarTitleText": "视频",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		}, {
+			"path": "pages/commodity/pingjia",
+			"bz": "全部评价",
+			"style": {
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "全部评价",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		},{
+			"path": "pages/fenlei/shangping",
+			"bz": "商品",
+			"style": {
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "商品",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		},{
+			"path": "pages/user/AddAddress",
+			"bz": "添加收货地址",
+			"style": {
+				"navigationBarTitleText": "添加收货地址",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/commodity/details",
+			"bz": "详情",
+			"style": {
+				"navigationBarTitleText": "详情",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		}, {
+			"path": "pages/commodity/shopIndex",
+			"bz": "店铺首页",
+			"style": {
+				"navigationBarTitleText": "店铺首页",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		}, {
+			"path": "pages/zhaunti/index",
+			"bz": "家具专场",
+			"style": {
+				"navigationBarTitleText": "825家具专场",
+				"enablePullDownRefresh": true, //开启下拉刷新
+				"navigationBarTextStyle": "black",
+				"backgroundColor": "#CAEFFF",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/user/orderTracking",
+			"bz": "订单跟踪",
+			"style": {
+				"navigationBarTitleText": "订单跟踪",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/user/myOrder",
+			"bz": "我的订单",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		}, {
+			"path": "pages/user/addressManagement",
+			"bz": "收货地址",
+			"style": {
+				"navigationBarTitleText": "收货地址",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/user/setting",
+			"bz": "设置",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/user/information",
+			"bz": "个人资料",
+			"style": {
+				"navigationBarTitleText": "个人资料",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/user/gexingqianming",
+			"bz": "修改个性签名",
+			"style": {
+				"navigationBarTitleText": "修改个性签名",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/user/xiugainicheng",
+			"bz": "修改昵称",
+			"style": {
+				"navigationBarTitleText": "修改昵称",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/index/searchResult",
+			"bz": "搜索结果",
+			"style": {
+				"navigationBarTitleText": "搜索结果",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/index/search",
+			"bz": "搜索",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		}, {
+			"path": "pages/fenlei/index",
+			"bz": "分类",
+			"style": {
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTitleText": "分类",
+				"navigationBarTextStyle": "black",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		}, {
+			"path": "pages/user/index",
+			"bz": "我的",
+			"style": {
+				"navigationBarBackgroundColor": "#ffc21c",
+				"backgroundColor": "#ffc21c",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		}, {
+			"path": "pages/gwc/index",
+			"bz": "购物车",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#F8F8F8",
+				"enablePullDownRefresh": true //开启下拉刷新
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#ffffff",
+		"selectedColor": "#F39F3A",
+		"borderStyle": "white",
+		"backgroundColor": "#313237",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/img/bottom/dsfds_a_a.png",
+			"selectedIconPath": "static/img/bottom/dsfds_b_a.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/fenlei/index",
+			"iconPath": "static/img/bottom/dsfds_a_b.png",
+			"selectedIconPath": "static/img/bottom/dsfds_b_b.png",
+			"text": "全部分类"
+		}, {
+			"pagePath": "pages/gwc/index",
+			"iconPath": "static/img/bottom/dsfds_a_c.png",
+			"selectedIconPath": "static/img/bottom/dsfds_b_c.png",
+			"text": "采购单"
+		}, {
+			"pagePath": "pages/user/index",
+			"iconPath": "static/img/bottom/dsfds_a_d.png",
+			"selectedIconPath": "static/img/bottom/dsfds_b_d.png",
+			"text": "我的"
+		}]
+	},
+
+	"globalStyle": {
+		"backgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#001839",
+		"usingComponents": {
+			"van-cell-group": "/wxcomponents/cell-group/index",
+			"van-row": "/wxcomponents/row/index",
+			"van-col": "/wxcomponents/col/index",
+			"van-field": "/wxcomponents/field/index",
+			"van-cell": "/wxcomponents/cell/index",
+			"van-icon": "/wxcomponents/icon/index",
+			"van-transition": "/wxcomponents/transition/index",
+			"van-checkbox": "/wxcomponents/checkbox/index",
+			"van-checkbox-group": "/wxcomponents/checkbox-group/index",
+			"van-search": "/wxcomponents/search/index",
+			"van-stepper": "/wxcomponents/stepper/index",
+			"van-dialog": "/wxcomponents/dialog/index",
+			"van-swipe-cell": "/wxcomponents/swipe-cell/index",
+			"van-toast": "/wxcomponents/toast/index",
+			"van-tab": "/wxcomponents/tab/index",
+			"van-tabs": "/wxcomponents/tabs/index",
+			"van-button": "/wxcomponents/button/index",
+			"van-radio": "/wxcomponents/radio/index",
+			"van-radio-group": "/wxcomponents/radio-group/index",
+			"van-datetime-picker": "/wxcomponents/datetime-picker/index",
+			"van-switch": "/wxcomponents/switch/index",
+			"van-area": "/wxcomponents/area/index",
+			"van-popup": "/wxcomponents/popup/index",
+			"van-rate": "/wxcomponents/rate/index",
+			"van-goods-action": "/wxcomponents/goods-action/index",
+			"van-goods-action-icon": "/wxcomponents/goods-action-icon/index",
+			"van-goods-action-button": "/wxcomponents/goods-action-button/index",
+			"van-steps": "/wxcomponents/steps/index"
+		}
+	}
+}

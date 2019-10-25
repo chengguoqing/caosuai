@@ -1,0 +1,312 @@
+.ssd_jhh_der {
+	width: 610upx;
+
+	margin: auto;
+}
+
+.ssd_jhh_der input {
+	height: 65upx;
+	padding-left: 70upx;
+	font-size: 28upx;
+	background: #fff;
+	border-radius: 40upx;
+}
+
+.ssd_jhh_der image {
+	width: 34upx;
+	height: 34upx;
+	position: absolute;
+	left: 20upx;
+	top: 15upx;
+	z-index: 10;
+}
+
+.van-button--primary,
+.van-button--info {
+	width: 100%;
+	height: 84upx !important;
+	font-size: 30upx !important;
+	border-radius: 40upx !important;
+	background: #FFC120 !important;
+	border-color: #FFC120 !important;
+}
+
+.van-button--default {
+	width: 100%;
+	height: 84upx !important;
+	font-size: 30upx !important;
+}
+
+.van-button--info {
+	background: #333333 !important;
+	border-color: #333 !important;
+}
+
+.bssderrtx {
+	position: fixed;
+	left: 0;
+	bottom: 40upx;
+	width: 100%;
+}
+
+.van-picker__cancel,
+.van-picker__confirm {
+	line-height: 88upx;
+}
+
+.van-popup {
+	overflow: inherit !important;
+	border-top-left-radius: 20upx;
+	border-top-right-radius: 20upx;
+}
+
+.ddf_jhj_eet {
+	position: sticky;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	background: #CAEFFF;
+	/* #ifdef H5 */
+	top: 88upx;
+	/* #endif */
+}
+
+.sdfds_jj_dr {
+	line-height: 70upx;
+	padding-left: 30upx;
+	padding-right: 30upx;
+	color: #2894C4;
+	font-size: 30upx;
+}
+
+.sdfds_jj_dr.act {
+	color: #fff;
+}
+
+.sdfds_jj_dr.act:after {
+	content: ' ';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 4upx;
+	background: #fff;
+}
+
+.sdfddf_deer {
+	border-radius: 40upx;
+	border: 1px solid #999;
+	color: #999;
+	font-size: 28upx;
+	padding: 8upx 20upx;
+	margin-left: 20upx;
+}
+
+.sdfddf_deer.ab {
+	color: #FF384F;
+	border-color: #FF384F;
+}
+
+.fengxiangweer,
+.dingbudd {
+	position: fixed;
+	width: 96upx;
+	height: 96upx;
+	right: 20upx;
+	bottom: 200upx;
+	z-index: 1000;
+	/* #ifdef H5 */
+	bottom: 210upx;
+	/* #endif */
+}
+
+.fengxiangweer image {
+	width: 100%;
+	height: 100%;
+}
+
+.fengxiangweer button {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+
+.dingbudd {
+	width: 78upx;
+	height: 78upx;
+	bottom: 100upx;
+	right: 30upx;
+	/* #ifdef H5 */
+	bottom: 110upx;
+	/* #endif */
+}
+
+.dxbghdeeert {
+	background: red !important;
+}
+
+.user_iconswwr {
+	width: 80upx;
+	height: 80upx;
+	border-radius: 50%;
+}
+
+.dsf_deerttxer view,
+.dfd_deeettwr {
+	line-height: 1.2 !important;
+}
+
+.dialksd_logo {
+	width: 90upx;
+	height: 90upx;
+}
+
+.dsf_eeerttxe,
+.dsf_eeerttxe view {
+	line-height: 90upx !important;
+}
+
+.sdsad_deeer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100upx;
+	line-height: 100upx;
+	background: #fff;
+}
+
+.sdsad_deeer view {
+	line-height: 1.3 !important;
+}
+
+.sd_deertrs {
+	width: 20upx;
+	height: 50px;
+	background: #fff;
+}
+
+.gegsd_deer {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.fengxsd_a {
+	width: 96upx;
+}
+
+.ssd_seert {
+	margin-top: 20upx;
+}
+
+.sdfds_deertwe {
+	width: 500upx;
+}
+
+.dsfds_deeert {}
+
+.yy {
+	box-shadow: 0 0 20rpx rgba(229, 229, 229, 0.5);
+
+}
+
+/* #ifdef H5 */
+uni-page-head {
+	display: none;
+}
+
+/* #endif */
+
+.dxtttop {
+	height: 90upx;
+	background: #fff;
+	position: sticky;
+	left: 0;
+	top: 0;
+	z-index: 100;
+}
+
+.ssddeleft {
+	line-height: 90upx;
+	width: 140upx;
+}
+
+.downiconde {
+	position: absolute;
+	right: 0;
+	width: 20upx;
+	top: 35upx;
+}
+
+.mansedert {
+	width: 40upx;
+	position: relative;
+	bottom: 4upx;
+}
+
+.dssd_eergx {
+	width: 100upx;
+	height: 90upx;
+	line-height: 1;
+	padding-top: 14upx;
+
+}
+
+.saoyieerr {
+	width: 32upx;
+}
+
+.ssouidwxe {
+	border-radius: 40upx;
+	height: 66upx;
+	line-height: 66upx;
+	background: #F4F4F4;
+	margin-top: 12upx;
+	color: #999;
+	padding-left: 20upx;
+}
+
+.sserrtxe {
+	width: 36upx;
+	margin-right: 20upx;
+}
+
+.lunudeerx {
+	height: 400upx;
+}
+
+.jinxuanfen {
+	background: #fff;
+	min-height: 400upx;
+	border-top-left-radius: 20upx;
+	border-top-right-radius: 20upx;
+	margin-top: -88upx;
+}
+
+.jiswwexwe {
+	line-height: 88upx;
+}
+
+.parent {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+}
+
+.ssdd_deertx {
+	border-top: 1px solid #F8F8F8;
+	border-right: 1px solid #F8F8F8;
+}
+
+.ssdd_deertx image {
+	height: 133upx;
+}
+
+.van-field__control{
+		font-size: 28upx !important;
+		line-height: 1.6;
+}
