@@ -69,6 +69,7 @@
 		width: 100%;
 		height: 220upx !important;
 		border: 1px solid #FAFAFA;
+		background: #F8F8F8;
 	}
 
 

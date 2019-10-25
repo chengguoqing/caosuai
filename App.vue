@@ -4,7 +4,7 @@
 		methods: {
 			async getconfig() {
 				var sd_us = window.location.href
-				let data = await this.get("wx/init", {
+				let data = await this.get("weixin/init", {
 					sd_us: sd_us
 				})
 				wx.config({

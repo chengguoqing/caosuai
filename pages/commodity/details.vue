@@ -4,27 +4,27 @@
 		<luBarTabNav :tabList="tabList" :barFixed="barFixed" :barHeight="barHeight" :barTop="barTop" :barId="barId" ref="barTabNav">
 			<view id="item1" class="tabbody">
 
-				<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000"   :circular="true" class="ssd_jh_dertxe pr">
+				<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true" class="ssd_jh_dertxe pr">
 					<swiper-item v-for="sd in sd.spt">
 						<image :src="sd" class="w100 h100"></image>
 					</swiper-item>
 				</swiper>
 				<view class="pt20 pm20 bgff pd">
-					
+
 					<view class="fz32 z3">
 						{{sd.name}}
 					</view>
 					<view class="fz28 z6">
 						{{sd.spmd}}
 					</view>
-					
+
 					<view class="fz26 z9">
 						售价：<text class="ye">￥<text class="fz30">{{sd.jiage}}</text> /{{sd.scdanwei}}</text>
 					</view>
-					
+
 				</view>
 				<van-cell-group>
-					<van-cell title="别名" value="刚性卡箍"  />
+					<van-cell title="别名" value="刚性卡箍" />
 				</van-cell-group>
 				<!-- <view class="mt20">
 					<van-cell-group>
@@ -37,7 +37,7 @@
 					</van-cell-group>
 				</view> -->
 			</view>
-<!-- 			<view id="item2" class="tabbody">
+			<!-- 			<view id="item2" class="tabbody">
 
 				<view class="mt20 bgff  " @tap="hf('/pages/commodity/pingjia')">
 					<view class=" dx_row pt20 pm20 pd">
@@ -84,7 +84,7 @@
 
 			</view>
 			 -->
-			
+
 			<view id="item3" class="tabbody">
 
 				<view class="mt20 bgff">
@@ -92,111 +92,111 @@
 						商品详情
 					</view>
 					<view class="mt20" v-html="sd.xiqngqing">
-						
+
 					</view>
 				</view>
 			</view>
 		</luBarTabNav>
 
 
-			
-			
-			
+
+
+
 		<dxpup ref="ssd_eert_c">
-					<view class="pd pt20 pm20 gegsd_deer cen">
-						<view class="ssd_seert">
-							<image src="../../static/img/fengxsd_a.png" mode="widthFix" class="fengxsd_a cz"></image>
-							<view class="fz26 z3">
-								素材海报
-							</view>
-						</view>
-						<view class="ssd_seert">
-							<image src="../../static/img/fengxsd_b.png" mode="widthFix" class="fengxsd_a cz"></image>
-							<view class="fz26 z3">
-								微信好友
-							</view>
-							<button open-type="share" class="fehxiaeer"></button>
-						</view>
-						<view class="ssd_seert">
-							<image src="../../static/img/fengxsd_c.png" mode="widthFix" class="fengxsd_a cz"></image>
-							<view class="fz26 z3">
-								朋友圈
-							</view>
-							<button open-type="share" class="fehxiaeer"></button>
-						</view>
-						<!-- #ifdef APP-PLUS || MP-WEIXIN -->
-						<view class="ssd_seert" @click="fuzhi">
-							<image src="../../static/img/fengxsd_d.png" mode="widthFix" class="fengxsd_a cz"></image>
-							<view class="fz26 z3">
-								复制链接
-							</view>
-						</view>
-						<!-- #endif -->
-						<!-- #ifdef H5 -->
-
-
-						<view class="ssd_seert" v-clipboard:copy="message" v-clipboard:success="onCopy">
-							<image src="../../static/img/fengxsd_d.png" mode="widthFix" class="fengxsd_a cz"></image>
-							<view class="fz26 z3">
-								复制链接
-							</view>
-						</view>
-						<!-- #endif -->
-
+			<view class="pd pt20 pm20 gegsd_deer cen">
+				<view class="ssd_seert">
+					<image src="../../static/img/fengxsd_a.png" mode="widthFix" class="fengxsd_a cz"></image>
+					<view class="fz26 z3">
+						素材海报
 					</view>
-					<view class=" mt20 cen">
-						<van-button class="w100" @click="$refs.ssd_eert_c.close()">取消</van-button>
+				</view>
+				<view class="ssd_seert">
+					<image src="../../static/img/fengxsd_b.png" mode="widthFix" class="fengxsd_a cz"></image>
+					<view class="fz26 z3">
+						微信好友
 					</view>
-			</dxpup>
-				
-				
-				
-			
-				
-				<dxpup ref="ssd_eert_b">
-					<view class="bgff">
-						<view class="fz32 z3 pt20 pd pm20">
-							配送至
-						</view>
-						<view class="pr dsfds_deerrtty">
-							<dxarea @closew="closew"></dxarea>
-						</view>
+					<button open-type="share" class="fehxiaeer"></button>
+				</view>
+				<view class="ssd_seert">
+					<image src="../../static/img/fengxsd_c.png" mode="widthFix" class="fengxsd_a cz"></image>
+					<view class="fz26 z3">
+						朋友圈
 					</view>
-				</dxpup>
-				
+					<button open-type="share" class="fehxiaeer"></button>
+				</view>
+				<!-- #ifdef APP-PLUS || MP-WEIXIN -->
+				<view class="ssd_seert" @click="fuzhi">
+					<image src="../../static/img/fengxsd_d.png" mode="widthFix" class="fengxsd_a cz"></image>
+					<view class="fz26 z3">
+						复制链接
+					</view>
+				</view>
+				<!-- #endif -->
+				<!-- #ifdef H5 -->
 
-				<fenxiang :scrollTop="scrollTop" :ieerss="true" @ssddfeer="$refs.ssd_eert_c.open()"></fenxiang>
-				<dxpup ref="ssd_eert">
-					<sku @closese="$refs.ssd_eert.close()"></sku>
-				</dxpup>
-				
-				
-				
-						<view class="sdsad_deeer btm dx_row">
-							<view class="dx_col cen pt10">
-								<van-icon name="like-o" class="fz40" />
-								<view class="fz24 z6">
-									收藏
-								</view>
-							</view>
-						
-							<view class="dx_col cen pt10">
-								<van-icon name="bag-o" class="fz40" />
-								<view class="fz24 z6">
-									购物车
-								</view>
-							</view>
-							<view class="dx_row  sdfds_deertwe">
-								<view class="dx_col ">
-									<van-button class="dfsdfd_se aa" @click="shwiwe">加入采购单</van-button>
-								</view>
-							</view>
-						</view>
-				
+
+				<view class="ssd_seert" v-clipboard:copy="message" v-clipboard:success="onCopy">
+					<image src="../../static/img/fengxsd_d.png" mode="widthFix" class="fengxsd_a cz"></image>
+					<view class="fz26 z3">
+						复制链接
+					</view>
+				</view>
+				<!-- #endif -->
+
+			</view>
+			<view class=" mt20 cen">
+				<van-button class="w100" @click="$refs.ssd_eert_c.close()">取消</van-button>
+			</view>
+		</dxpup>
+
+
+
+
+
+		<dxpup ref="ssd_eert_b">
+			<view class="bgff">
+				<view class="fz32 z3 pt20 pd pm20">
+					配送至
+				</view>
+				<view class="pr dsfds_deerrtty">
+					<dxarea @closew="closew"></dxarea>
+				</view>
+			</view>
+		</dxpup>
+
+
+		<fenxiang :scrollTop="scrollTop" :ieerss="true" @ssddfeer="$refs.ssd_eert_c.open()"></fenxiang>
+		<dxpup ref="ssd_eert">
+			<sku @closese="lijisd"></sku>
+		</dxpup>
+
+
+
+		<view class="sdsad_deeer btm dx_row">
+			<view class="dx_col cen pt10">
+				<van-icon name="like-o" class="fz40" />
+				<view class="fz24 z6">
+					收藏
+				</view>
+			</view>
+
+			<view class="dx_col cen pt10">
+				<van-icon name="bag-o" class="fz40" />
+				<view class="fz24 z6">
+					购物车
+				</view>
+			</view>
+			<view class="dx_row  sdfds_deertwe">
+				<view class="dx_col ">
+					<van-button class="dfsdfd_se aa" @click="shwiwe">加入采购单</van-button>
+				</view>
+			</view>
+		</view>
+
 	</view>
 
 
- 
+
 
 </template>
 <script>
@@ -207,8 +207,8 @@
 	export default {
 		data() {
 			return {
-				sd:"",
-				idwwe:0,
+				sd: "",
+				idwwe: 0,
 				scrollTop: "",
 				showes: false,
 				showCs: false,
@@ -223,7 +223,7 @@
 				tabList: [{
 					text: "商品",
 					navTarget: "#item1"
-				},{
+				}, {
 					text: "详情",
 					navTarget: "#item3"
 				}]
@@ -243,19 +243,29 @@
 		onPullDownRefresh() {
 			this.getdata()
 		},
-		
+
 		onLoad(e) {
 			this.idwwe = e.id
 			this.getdata()
 		},
 		methods: {
+			async lijisd() {
+				this.$refs.ssd_eert.close()
+				this.hf('querendingdan')
+
+			},
 			async getdata(id) {
-				let data = await this.post("csscs/getspxq",{id:this.idwwe})
+				let data = await this.post("csscs/getspxq", {
+					id: this.idwwe
+				})
 				this.sd = data
 				uni.stopPullDownRefresh();
 			},
-			shwiwe(){
-				this.$refs.ssd_eert.open() 
+			async shwiwe() {
+				if (!localStorage.userinfo) {
+					await this.load()
+				}
+				this.$refs.ssd_eert.open()
 			},
 			closew(e) {
 				this.dizhisd = e[0].name + e[1].name + e[2].name
@@ -275,7 +285,7 @@
 
 	}
 
-	
+
 
 	.dfsdfd_se.ab button {
 		border-top-right-radius: 40upx !important;
@@ -330,10 +340,12 @@
 		top: 100upx;
 		z-index: 10000 !important;
 	}
-	.ssd_seert{
-			position: relative;
+
+	.ssd_seert {
+		position: relative;
 	}
-	.fehxiaeer{
+
+	.fehxiaeer {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -341,5 +353,4 @@
 		height: 100%;
 		opacity: 0;
 	}
-	
 </style>

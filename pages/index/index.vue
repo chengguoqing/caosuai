@@ -7,8 +7,6 @@
 				<image :src="sd.imgurl" class="w100 h100"></image>
 			</swiper-item>
 		</swiper>
-
-
 		<view class="pd pr">
 			<view class="jinxuanfen yy">
 				<view class="fz32 z3 cen jiswwexwe">
@@ -32,7 +30,6 @@
 				</view>
 			</view>
 		</view>
-
 	</view>
 </template>
 <script>

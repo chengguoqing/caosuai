@@ -14,7 +14,7 @@
 		</view>
 		
 		<view class="pt100">
-			<zhaungchanger idx_e="ab" :datas="ddf_ddr"></zhaungchanger>
+			<zhaungchanger idx_e="ab" :datas="ddf_ddr" v-if="iseeerxeer"></zhaungchanger>
 		</view>
 		<view class="" v-if="issd_a">
 			<view class="ngsd_ertt"></view>
@@ -48,6 +48,7 @@
 				jiaged: 0,
 				issd_a: false,
 				issd_b: false,
+				iseeerxeer:false,
 				ddf_ddr:[],
 				fenleiname:"",
 				ssd_deert: [{
@@ -118,6 +119,7 @@
 			},
 			async getlist (){
 				let data = await this.post("csscs/getsp",{jiage:this.jiaged,fenleiname:this.fenleiname})
+				this.iseeerxeer=true
 				data.map(a=>{
 					this.ddf_ddr.push(a)
 				})

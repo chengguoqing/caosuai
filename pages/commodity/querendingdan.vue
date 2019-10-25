@@ -31,7 +31,7 @@
 				共81件 <image src="../../static/img/rightsser.png" class="rightswewrxsw cz" mode="widthFix"></image>
 			</view>
 		</view>
-		
+
 		<view class="dx_row bgff pd pt20 pm20 yy mt20">
 			<view class="dx_col fz30 z3">
 				支付配送
@@ -44,37 +44,60 @@
 				<view class="ye fz24">
 					预计 2019年10月24日送达
 				</view>
-			
+
 			</view>
 		</view>
-		
+
 		<view class="mt20 bgff yy">
 			<van-cell-group>
-			    <van-cell title="资质文件信息" value="不需要" is-link/>
-				 <van-cell title="发票" value="不需要" is-link/>
-				 <van-cell title="运费是否分摊" value="运费单开" is-link/>
-				 <van-field class="beizeer" label="备注" type="textarea" placeholder="如有定制、加工、装卸等增值服务需求详询客服" clearable />
+				<van-cell title="资质文件信息" value="不需要" is-link />
+				<van-cell title="发票" value="不需要" is-link />
+				<van-cell title="运费是否分摊" value="运费单开" is-link />
+				<van-field class="beizeer" label="备注" type="textarea" placeholder="如有定制、加工、装卸等增值服务需求详询客服" clearable />
 			</van-cell-group>
 		</view>
-		
-		
+
+
 		<view class="sd_jh_eerxwertx btm yy bgff dx_row pl20">
 			<view class="dx_col fz26 z6">
 				应付金额： <text class="ye">￥<text class="fz36">352</text>.50</text>
 			</view>
-			<view class="ddf_eebtne cf">
+			<view class="ddf_eebtne cf" @tap="zhifusd">
 				提交订单
 			</view>
 		</view>
 	</view>
 </template>
 <script>
+	var wx = require('weixin-js-sdk');
 	export default {
 		data() {
 			return {}
 		},
 		components: {},
-		methods: {},
+		methods: {
+			async zhifusd() {
+				uni.showLoading({
+				    title: '加载中....'
+				});
+				let wx_cd = await this.get("weixin/zhifu", {
+					jiner: 10
+				})
+				wx_cd = wx_cd.data
+				uni.hideLoading();
+				wx.chooseWXPay({
+					timestamp: wx_cd.timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+					nonceStr: wx_cd.nonceStr, // 支付签名随机串，不长于 32 位
+					package: wx_cd.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
+					signType: wx_cd.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+					paySign: wx_cd.paySign, // 支付签名
+					success: function(res) {
+						// 支付成功后的回调函数
+						console.log(res)
+					}
+				});
+			}
+		},
 		mounted() {}
 	}
 </script>
@@ -124,12 +147,14 @@
 		grid-column-gap: 30upx;
 		grid-row-gap: 0px;
 	}
-	.ssd_jjh_derx{
+
+	.ssd_jjh_derx {
 		height: 120upx;
 		border: 1px solid #e0e0e0;
 	}
-	.sdfdsf_eexs{
-		background:#FE9416;
+
+	.sdfdsf_eexs {
+		background: #FE9416;
 		color: #fff;
 		border-radius: 20upx;
 		font-size: 24upx;
@@ -140,26 +165,30 @@
 		line-height: 1;
 		padding: 6upx 10upx;
 	}
-	.sdfdf_dertxw{
+
+	.sdfdf_dertxw {
 		width: 30upx;
 	}
-	.sd_jh_eerxwertx{
+
+	.sd_jh_eerxwertx {
 		position: fixed;
 		left: 0;
 		bottom: 0;
 		width: 100%;
 		height: 100upx;
-		
+
 	}
-	.sd_jh_eerxwertx view{
+
+	.sd_jh_eerxwertx view {
 		line-height: 100upx;
 	}
-	.ddf_eebtne{
+
+	.ddf_eebtne {
 		width: 250upx;
 		height: 100%;
 		background: #FE9514;
 		color: #fff;
 		font-size: 32upx;
-		text-align:center;
+		text-align: center;
 	}
 </style>

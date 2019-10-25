@@ -1,4 +1,4 @@
-var url_d = "http://192.168.1.200:8360/"
+var url_d = "http://www.duxinggj.com/"
 exports.base = {
 	install: function(Vue, options) {
 		Vue.prototype.version = "9.2.1"
@@ -206,7 +206,7 @@ exports.base = {
 				}
 				if (localStorage.codes && !localStorage.userinfo) {
 					uni.request({
-						url: url_d + 'wx/getuserinfo',
+						url: url_d + 'weixin/getuserinfo',
 						method: "get",
 						data: {
 							code: localStorage.codes
@@ -218,13 +218,12 @@ exports.base = {
 					});
 				}
 				if (!localStorage.codes) {
-					window.location.href =
-						"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf8b0c920900b2663&redirect_uri=" +
+					window.location.replace("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf8b0c920900b2663&redirect_uri=" +
 						encodeURIComponent(window.location.href) +
-						"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+						"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect")
+						
 				}
 			})
-
 		}
 
 
