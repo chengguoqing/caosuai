@@ -129,11 +129,18 @@
 					oderid: this.oderid,
 					zftypecode: 2,
 					beizhu: this.beizhu,
+					zongjia: this.zongjia,
 					shouhuodiz: JSON.stringify(this.dizhi)
 				})
-				uni.redirectTo({
-					url: '/pages/commodity/zhifuzt?zfzt=' + dase
-				});
+				uni.showLoading({
+					title:"操作中..."
+				})
+				setTimeout(a => {
+					uni.hideLoading()
+					uni.redirectTo({
+						url: '/pages/commodity/zhifuzt?zfzt=' + dase
+					});
+				}, 1000)
 
 			},
 			async zhifusd() {
