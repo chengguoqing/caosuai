@@ -48,9 +48,7 @@
 	}
 </script>
 <style scoped>
-	.no_msg{
-		width: 400upx;
-	}
+	
 	.parent {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);

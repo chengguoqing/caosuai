@@ -1,11 +1,11 @@
 <template>
 	<view class="dxtttop dx_row pd yy">
-		<view class="ssddeleft fz26 dian pr">
+		<!-- <view class="ssddeleft fz26 dian pr">
 			<image src="../../static/img/map.png" mode="widthFix" class="mansedert cz"></image> 深圳市 <image src="../../static/img/down.png"
 			 class="downiconde" mode="widthFix"></image>
-		</view>
+		</view> -->
 		<view class="dx_col pd">
-			<view class="ssouidwxe">
+			<view class="ssouidwxe" @tap="hf('search')">
 				<image src="../../static/img/sousuo.png" class="sserrtxe cz" mode="widthFix"></image>
 				请输入商品名称、型号
 			</view>

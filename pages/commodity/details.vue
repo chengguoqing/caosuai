@@ -24,7 +24,7 @@
 
 				</view>
 				<van-cell-group>
-					<van-cell title="别名" value="刚性卡箍" />
+					<van-cell title="别名" :value="sd.bieming" />
 				</van-cell-group>
 				<!-- <view class="mt20">
 					<van-cell-group>
@@ -167,20 +167,21 @@
 
 		<fenxiang :scrollTop="scrollTop" :ieerss="true" @ssddfeer="$refs.ssd_eert_c.open()"></fenxiang>
 		<dxpup ref="ssd_eert">
-			<sku @closese="lijisd"></sku>
+			<sku @closese="lijisd" :sd="sd" @lijigmd="lijigmd"></sku>
 		</dxpup>
 
 
 
 		<view class="sdsad_deeer btm dx_row">
-			<view class="dx_col cen pt10">
-				<van-icon name="like-o" class="fz40" />
+			<view class="dx_col cen pt10" @tap="shouchas(sd.issc==1?2:1)">
+				<van-icon name="like-o" class="fz40" v-if="sd.issc==1" />
+				<van-icon name="like" class="fz40 ye" v-if="sd.issc==2" />
 				<view class="fz24 z6">
 					收藏
 				</view>
 			</view>
 
-			<view class="dx_col cen pt10">
+			<view class="dx_col cen pt10" @tap="hf('/pages/gwc/index',2)">
 				<van-icon name="bag-o" class="fz40" />
 				<view class="fz24 z6">
 					购物车
@@ -192,6 +193,11 @@
 				</view>
 			</view>
 		</view>
+
+
+
+
+
 
 	</view>
 
@@ -245,13 +251,33 @@
 		},
 
 		onLoad(e) {
+			this.load()
 			this.idwwe = e.id
 			this.getdata()
 		},
 		methods: {
+			async shouchas(sce) { //收藏按钮触发
+				uni.showLoading({
+					title:"加载中。。。"
+				})
+				var ssde = await this.post("csscs/shouchang", {
+					shopid: this.sd.id,
+					issc: sce
+				})
+				this.sd.issc = sce
+			},
 			async lijisd() {
 				this.$refs.ssd_eert.close()
-				this.hf('querendingdan')
+			},
+			async lijigmd(data) {
+				uni.showLoading({
+					title: "操作中。。。"
+				})
+				var ssde = await this.post("csscs/lijigoumai", data)
+				this.$refs.ssd_eert.close()
+				if (data.isgouwuce == 1) {
+					this.hf('querendingdan?oderid=' + ssde.oderid)
+				}
 
 			},
 			async getdata(id) {
@@ -262,9 +288,7 @@
 				uni.stopPullDownRefresh();
 			},
 			async shwiwe() {
-				if (!localStorage.userinfo) {
-					await this.load()
-				}
+				this.load()
 				this.$refs.ssd_eert.open()
 			},
 			closew(e) {

@@ -15,7 +15,13 @@ Vue.use(VueClipboard)
 Vue.use(upopup)
 import store from './store'
 Vue.prototype.$store = store
-Vue.prototype.hf = function(url) {
+Vue.prototype.hf = function(url,ty) {
+	if(ty==2){
+		uni.switchTab({
+		    url: url
+		});
+		return
+	}
 	uni.navigateTo({
 		url: url
 	});

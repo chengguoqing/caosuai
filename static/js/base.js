@@ -1,4 +1,5 @@
 var url_d = "http://www.duxinggj.com/"
+// url_d = "http://192.168.1.102:8360/"
 exports.base = {
 	install: function(Vue, options) {
 		Vue.prototype.version = "9.2.1"
@@ -19,6 +20,13 @@ exports.base = {
 
 		Vue.prototype.post = function(url, canshu, call, ty) {
 			return new Promise((resolve, reject) => {
+				if (!canshu) {
+					canshu = {}
+				}
+				let useriofow = uni.getStorageSync('userinfo')
+				if (useriofow) {
+					canshu.userid = useriofow.id
+				}
 				uni.request({
 					url: url_d + url,
 					method: "POST",
@@ -27,6 +35,14 @@ exports.base = {
 					},
 					data: canshu,
 					success: (res) => {
+						uni.hideLoading()
+						if (res.data.code < 0) {
+							uni.showToast({
+								title: JSON.stringify(res.data.msg),
+								icon: "none"
+							})
+							return
+						}
 						resolve(res.data.data)
 					}
 				});
@@ -34,6 +50,13 @@ exports.base = {
 		}
 		Vue.prototype.get = function(url, canshu, call, ty) {
 			return new Promise((resolve, reject) => {
+				if (!canshu) {
+					canshu = {}
+				}
+				let useriofow = uni.getStorageSync('userinfo')
+				if (useriofow) {
+					canshu.userid = useriofow.id
+				}
 				uni.request({
 					url: url_d + url,
 					method: "get",
@@ -195,35 +218,37 @@ exports.base = {
 			})
 		}
 		Vue.prototype.load = function(call) {
-			return new Promise((resolve, reject) => {
-				//            授权登录
-				var sd_der = window.location.href
-				try {
-					sd_der = sd_der.split('?')[1].split("code=")[1].split("&")[0];
-					localStorage.codes = sd_der
-				} catch (e) {
-					sd_der = false
-				}
-				if (localStorage.codes && !localStorage.userinfo) {
+			//            授权登录
+			var sd_der = window.location.href
+			try {
+				sd_der = sd_der.split('?')[1].split("code=")[1].split("&")[0];
+				uni.setStorageSync('codes', sd_der);
+			} catch (e) {
+				sd_der = false
+			}
+			if (uni.getStorageSync('codes')) {
+				if (!uni.getStorageSync('userinfo').id) {
 					uni.request({
 						url: url_d + 'weixin/getuserinfo',
 						method: "get",
 						data: {
-							code: localStorage.codes
+							type:1,
+							code: uni.getStorageSync('codes')
 						},
 						success: (res) => {
-							localStorage.userinfo = JSON.stringify(res.data)
-							resolve(JSON.stringify(res.data))
+							uni.setStorageSync('userinfo', res.data)
 						}
 					});
 				}
-				if (!localStorage.codes) {
-					window.location.replace("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf8b0c920900b2663&redirect_uri=" +
-						encodeURIComponent(window.location.href) +
-						"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect")
-						
-				}
-			})
+
+			}
+			if (!uni.getStorageSync('codes')) {
+				window.location.href =
+					"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf8b0c920900b2663&redirect_uri=" +
+					encodeURIComponent(window.location.href) +
+					"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+
+			}
 		}
 
 

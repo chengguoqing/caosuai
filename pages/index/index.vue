@@ -19,7 +19,7 @@
 							{{sd.name}}
 						</view>
 					</view>
-					<view class="ssdd_deertx">
+					<view class="ssdd_deertx" @tap="hf('/pages/fenlei/shangping?fenleiname=')">
 						<view class="cen">
 							<image src="../../static/img/gengduo.png" class="w100 gengduo"></image>
 						</view>
@@ -37,8 +37,8 @@
 	export default {
 		data() {
 			return {
-				banners:[],
-				fenlei:[]
+				banners: [],
+				fenlei: []
 			}
 		},
 		components: {
@@ -72,6 +72,7 @@
 			}
 		},
 		mounted() {
+			this.load()
 			this.getdata()
 		}
 	}

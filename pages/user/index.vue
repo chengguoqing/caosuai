@@ -2,9 +2,9 @@
 	<view class="user_page pm20">
 		<view class="pr sd_jh_deer pd">
 			<view class="pd pt20 pm10 dx_row">
-				<image :src="userinfo.headimgurl" class="user_iconr" @tap="hf('/pages/user/information')"></image>
+				<image :src="userinfo.headimgurl" class="user_iconr" ></image>
 				<view class="dx_col user_name_er pr">
-					<view class="fz36 cf" @tap="hf('/pages/user/information')">
+					<view class="fz36 cf" >
 						账号：{{userinfo.nickname}}
 					</view>
 					<view class="z9 fz26 mt5 cf">
@@ -13,11 +13,10 @@
 							积分{{userinfo.jifen}}
 						</view>
 					</view>
-					<image src="../../static/img/liuyan_b.png" mode="widthFix" class="liuxianer"></image>
 				</view>
 			</view>
 
-			<image src="../../static/img/right.png" class="righyswweer" mode="widthFix"></image>
+			<!-- <image src="../../static/img/right.png" class="righyswweer" mode="widthFix"></image> -->
 		</view>
 		<view class="pd">
 
@@ -26,14 +25,15 @@
 					<view class="dx_col fz30 z3">
 						我的订单
 					</view>
-					<view class="dx_col tr z9 fz28" @tap="hf('/pages/user/myOrder?idx=0')">
+					<!-- <view class="dx_col tr z9 fz28" @tap="hf('/pages/user/myOrder?idx=0')">
 						<text class="cz">全部订单</text>
 						<image src="../../static/img/right.png" mode="widthFix" class="cz right_iconeerr"></image>
-					</view>
+					</view> -->
 				</view>
 				<view class="mt10 dx_row cen pm10 btm pt40">
 					<view class="dx_col" @tap="hf('/pages/user/myOrder?idx=1')">
-						<view class="dsfds_deertt">
+						<view class="dsfds_deertt f_b pr">
+							<text class="ssddfdf3" v-if="sd.ddeefa>0">{{sd.ddeefa}}</text>
 							<image src="../../static/img/dfsdf_a.png" mode="widthFix" class="sdsf_ser aa"></image>
 						</view>
 						<view class="fz24 z3">
@@ -41,7 +41,8 @@
 						</view>
 					</view>
 					<view class="dx_col" @tap="hf('/pages/user/myOrder?idx=2')">
-						<view class="dsfds_deertt">
+						<view class="dsfds_deertt f_b pr">
+							<text class="ssddfdf3" v-if="sd.ddeefb>0">{{sd.ddeefb}}</text>
 							<image src="../../static/img/dfsdf_b.png" mode="widthFix" class="sdsf_ser ab"></image>
 						</view>
 						<view class="fz24 z3">
@@ -49,23 +50,18 @@
 						</view>
 					</view>
 					<view class="dx_col" @tap="hf('/pages/user/myOrder?idx=3')">
-						<view class="dsfds_deertt">
+						<view class="dsfds_deertt f_b pr">
+							<text class="ssddfdf3" v-if="sd.ddeefc>0">{{sd.ddeefc}}</text>
 							<image src="../../static/img/dfsdf_c.png" mode="widthFix" class="sdsf_ser ac"></image>
 						</view>
 						<view class="fz24 z3">
 							待收货
 						</view>
 					</view>
+
 					<view class="dx_col" @tap="hf('/pages/user/myOrder?idx=4')">
-						<view class="dsfds_deertt">
-							<image src="../../static/img/dfsdf_d.png" mode="widthFix" class="sdsf_ser ad"></image>
-						</view>
-						<view class="fz24 z3">
-							待评价
-						</view>
-					</view>
-					<view class="dx_col" @tap="hf('/pages/user/myOrder?idx=5')">
-						<view class="dsfds_deertt">
+						<view class="dsfds_deertt f_b pr">
+							<text class="ssddfdf3" v-if="sd.ddeefd>0">{{sd.ddeefd}}</text>
 							<image src="../../static/img/dfsdf_e.png" mode="widthFix" class="sdsf_ser ae"></image>
 						</view>
 						<view class="fz24 z3">
@@ -76,10 +72,9 @@
 			</view>
 
 			<van-cell-group class="mt20">
-				<van-cell title="我的优惠券" is-link />
-				<van-cell title="我的地址" is-link />
+				<van-cell title="我的地址" is-link @tap="hf('/pages/user/addressManagement')" />
+				<van-cell title="我的收藏" is-link @tap="hf('/pages/user/shouchang')" />
 				<van-cell title="客服电话" is-link value="13538190372" />
-				<van-cell title="清除缓存" is-link value="736MB" />
 				<van-cell title="退出" is-link @tap="oute" />
 			</van-cell-group>
 
@@ -103,7 +98,8 @@
 					name: "关注",
 					num: "0"
 				}],
-				userinfo: ""
+				userinfo: "",
+				sd: ""
 			}
 		},
 		onPullDownRefresh() {
@@ -113,18 +109,19 @@
 		},
 		methods: {
 			oute() {
-				localStorage.codes = ''
-				localStorage.userinfo = ''
-				window.location.href = 'https://www.duxinggj.com/www/phone/qm'
+				uni.clearStorage();
+				window.location.href = 'http://www.duxinggj.com/www/phone/qm'
 			},
 			async getdaa() {
-				let ssdwe = ''
-				if (!localStorage.userinfo) {
-					ssdwe = await this.load()
-				}
-				ssdwe = localStorage.userinfo
-				this.userinfo = JSON.parse(ssdwe)
+				this.userinfo = uni.getStorageSync('userinfo')
+
+			},
+			async getsdsd() {
+				this.sd = await this.post("csscs/dingdandj")
 			}
+		},
+		onShow(e) {
+			this.getsdsd()
 		},
 		mounted() {
 			this.getdaa()
@@ -229,5 +226,19 @@
 		right: 20upx;
 		top: 110upx;
 		width: 40upx;
+	}
+
+	.ssddfdf3 {
+		position: absolute;
+		right: -14upx;
+		top: -14upx;
+		background: #F8C757;
+		color: #fff;
+		border-radius: 50%;
+		width: 36upx;
+		height: 36upx;
+		z-index: 100;
+		line-height: 36upx;
+		font-size: 26upx;
 	}
 </style>

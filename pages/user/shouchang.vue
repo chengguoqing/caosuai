@@ -1,19 +1,6 @@
 <template>
 	<view>
-		<view class="ssd_jhderte bbm dx_row">
-			<view class="dx_col fz30 fdgdfg_dert" :class="idx==1?'act':''" @click="ssdfid(1)">
-				销量
-			</view>
-			<view class="dx_col fz30 fdgdfg_dert" :class="idx==2?'act':''" @click="ssdfid(2)">
-				价格
-				<image src="../../static/img/sdfsdf_b.png" mode="widthFix" class="sdfdsf_eeer ml5 ab cz" v-if="jiaged==0"></image>
-				<image src="../../static/img/sdfsdf_a.png" mode="widthFix" class="sdfdsf_eeer ml5 ab cz" v-if="jiaged==1"></image>
-				<image src="../../static/img/sdfsdf_c.png" mode="widthFix" class="sdfdsf_eeer ml5 ab cz" v-if="jiaged==2"></image>
-			</view>
-			
-		</view>
-		
-		<view class="pt100">
+		<view class="">
 			<zhaungchanger idx_e="ab" :datas="ddf_ddr" v-if="iseeerxeer"></zhaungchanger>
 		</view>
 		
@@ -25,28 +12,7 @@
 			<text class="cz">我是有底线的</text>
 		</view>
 		
-		
-		
-		<view class="" v-if="issd_a">
-			<view class="ngsd_ertt"></view>
-			<view class="dfdsf_deefwee">
-				<view class="bbm pd sdf_deerttxwe fz28" :class="sd.cls" v-for="(sd,idx) in ssd_deert" @tap="dsf_deexwr(idx)">
-					{{sd.name}}
-					<image src="../../static/img/goiuxuanwe.png" class="hiusweerwer ml10" mode="widthFix" v-if="sd.cls"></image>
-				</view>
-			</view>
-		</view>
-		
-		
-		<view class="" v-if="issd_b">
-			<view class="ngsd_ertt"></view>
-			<view class="dfdsf_deefwee">
-				<view class="bbm pd sdf_deerttxwe fz28" :class="sd.cls" v-for="(sd,idx) in ssd_deert_b" @tap="dsf_deexwrer(idx)">
-					{{sd.name}}
-					<image src="../../static/img/goiuxuanwe.png" class="hiusweerwer ml10" mode="widthFix" v-if="sd.cls"></image>
-				</view>
-			</view>
-		</view>
+	
 
 	</view>
 </template>
@@ -108,29 +74,6 @@
 			this.getlist()
 		},
 		methods: {
-			ssdfid(idx) {
-				this.idx = idx
-				
-				if (idx == 0) {
-					this.issd_a ? this.issd_a = false : this.issd_a = true
-				}else{
-					this.issd_a = false
-				}
-				if (idx == 2) {
-					this.page = 1
-					this.jiaged++
-					this.ddf_ddr = []
-					this.getlist()
-				}
-				if (this.jiaged > 2) {
-					this.jiaged = 1
-				}
-				if (idx == 3) {
-					this.issd_b ? this.issd_b = false : this.issd_b = true
-				}else{
-					this.issd_b = false
-				}
-			},
 			dsf_deexwr(idx) {
 				this.ssd_deert.map(a => {
 					a.cls = ''
@@ -146,7 +89,7 @@
 				this.issd_b = false
 			},
 			async getlist (){
-				let data = await this.post("csscs/getsp",{page:this.page,jiage:this.jiaged,fenleiname:this.fenleiname,sousou:this.sousou})
+				let data = await this.post("csscs/getshouce",{page:this.page,jiage:this.jiaged,fenleiname:this.fenleiname,sousou:this.sousou})
 				this.iseeerxeer=true
 				this.totalPages = data.totalPages
 				data.data.map(a=>{
@@ -168,7 +111,7 @@
 		position: fixed;
 		width: 100%;
 		left: 0;
-		top: 88upx;
+		top: 0;
 		height: 80upx;
 		line-height: 80upx;
 		background: #fff;

@@ -213,12 +213,7 @@
 
 }
 
-/* #ifdef H5 */
-uni-page-head {
-	display: none;
-}
 
-/* #endif */
 
 .dxtttop {
 	height: 90upx;
@@ -306,7 +301,19 @@ uni-page-head {
 	height: 133upx;
 }
 
-.van-field__control{
-		font-size: 28upx !important;
-		line-height: 1.6;
+.van-field__control {
+	font-size: 28upx !important;
+	line-height: 1.6;
+}
+
+.van-sku-row__item-img {
+	display: none;
+}
+
+.no_msg {
+	width: 400upx;
+}
+
+.lossderrf {
+	width: 80upx;
 }

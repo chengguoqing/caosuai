@@ -3,81 +3,85 @@
 		<van-icon name="close" class="z6 df_deeeret" @tap="$emit('closese')" />
 		<view class="dx_row">
 			<view class="dnsg_sdd pd pt20 pm20">
-				<image src="https://duxinggj-2018-1251133427.cos.ap-guangzhou.myqcloud.com/63e5087d-cc8e-4756-a686-841010a0fc8d.png" mode="widthFix"></image>
+				<image :src="sd.spt[0]" mode="widthFix"></image>
 			</view>
 			<view class="dx_col pl20 sdf_eertwwrr">
 				<view class="red fz26">
-					￥<text class="fz32">1298.00</text>
+					￥<text class="fz32">{{jiage*shuliang}}</text>
 				</view>
-				<view class="fz26 z6">
-					已选：4GB+64GB 极夜黑 1件
+				 <view class="fz26 z6" v-if="yuxuans">
+					已选：{{yuxuans}} {{shuliang}} {{sd.scdanwei}}
 				</view>
 			</view>
 		</view>
 		<view class="mt20">
-			<text v-for="sd in guges" class="sdfdsf_dseer" :class="sd.cls" @tap="ssd_der(sd)">{{sd.name}}</text>
+			<text v-for="sd in sd.sd_drtyx" class="sdfdsf_dseer" :class="sd.cls" @tap="ssd_der(sd)">{{sd.sku_name}}</text>
 		</view>
-		<view class="fz30 z3">
-			颜色
-		</view>
-		<view class="mt20">
-			<text v-for="sd in guges_b" class="sdfdsf_dseer" :class="sd.cls" @tap="ssd_der_b(sd)">{{sd.name}}</text>
-		</view>
+		
 		<view class="fz30 z3">
 			数量
 		</view>
 		<view class="mt20">
-			<van-stepper />
+			<van-stepper v-model="shuliang"/>
 		</view>
 		<view class="pt20 pm20 dx_row sdfsdeerrtdee mt20">
 			<view class="dx_col">
-				<van-button type="info" class="aa" @tap="$emit('closese')">加入集市袋</van-button>
+				<van-button type="info" class="aa" @tap="lisdsdr(0)">加入购物车</van-button>
 			</view>
 			<view class="dx_col">
-				<van-button type="primary" class="ab" @tap="$emit('closese')">立即购买</van-button>
+				<van-button type="primary" class="ab" @tap="lisdsdr(1)">立即购买</van-button>
 			</view>
 		</view>
 	</view>
 </template>
 <script>
 	export default {
+		props:{
+			sd:""
+		},
 		data() {
 			return {
-				guges: [{
-					name: "4GB+64GB",
-					cls: "act"
-				}, {
-					name: "64GB+128GB",
-					cls: ""
-				}, {
-					name: "128GB+256GB",
-					cls: ""
-				}],
-				guges_b: [{
-					name: "极夜黑",
-					cls: "act"
-				}, {
-					name: "极光色",
-					cls: ""
-				}]
+				jiage:"",
+				shuliang:1,//数量
+				yuxuans:'' //已选
 			}
 		},
 		components: {},
 		methods: {
 			ssd_der(sd) {
-				this.guges.map(a => {
+				this.sd.sd_drtyx.map(a => {
 					a.cls = ""
 				})
 				sd.cls = "act"
+				this.jiage =sd.cbjia 
+				this.yuxuans = sd.sku_name
 			},
-			ssd_der_b(sd) {
-				this.guges_b.map(a => {
-					a.cls = ""
-				})
-				sd.cls = "act"
-			},
+			lisdsdr(ty){
+				
+				if(this.sd.sd_drtyx.length>0&&!this.yuxuans){
+					uni.showToast({
+						title:"请选择规则",
+						icon:"none"
+					})
+					return
+				}
+				let xddreer = {}
+				xddreer.urlfm = this.sd.spt[0]
+				xddreer.yixuan = this.yuxuans 
+				xddreer.numner = this.shuliang
+				xddreer.spid = this.sd.id
+				xddreer.userid = 2
+				xddreer.jiagegm = ''+this.jiage*this.shuliang
+				xddreer.isgouwuce = ty
+				xddreer.name = this.sd.name
+				xddreer.danjie=this.sd.jiage
+				this.$emit('lijigmd',xddreer)
+				
+			}
 		},
-		mounted() {}
+		mounted() {
+			this.jiage = this.sd.jiage
+		}
 	}
 </script>
 <style>

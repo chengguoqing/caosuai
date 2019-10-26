@@ -1,88 +1,177 @@
 <template>
 	<view class="pl10 pr10  jhg_dertt pr">
-	<!-- 	<view class="ssd_jhj_der bbm tr   z9 pd">
+		<!-- 	<view class="ssd_jhj_der bbm tr   z9 pd">
 			编辑
-		</view> --> 
-		
-		<view class="dx_gwc_boxw pd tui-checkbox mt20">
+		</view> -->
+
+		<view class="dx_gwc_boxw pd tui-checkbox mt20" v-if="llseert">
 			<view class="bgff sd_jj_dert">
-				
-				<van-swipe-cell right-width="60" v-for="(sd,idx) in 3" :key="idx">
-					<view class="dx_gwc_box dx_row ">
-						<view class="gouxuansd">
-							<checkbox color="#fff" />
-						</view>
-						<image src="../../static/img/gangcai.jpg" mode="widthFix" class="fengmianer cz"></image>
-						<view class="dx_col pl20">
-							<view class="dian fz30 z3 titleerte">
-								标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题
+				<checkbox-group @change="checkboxChange">
+					<van-swipe-cell :right-width="60" v-for="(sd,idx) in getwuwud" :key="idx">
+						<view class="dx_gwc_box dx_row ">
+							<view class="gouxuansd">
+								<checkbox color="#fff" :value="idx" :checked="sd.checked" />
 							</view>
-							<view class="fz24 z9">
-								预计出货日：8天
-							</view>
-							<view class="fz24 z9">
-								规格：10MM*2Cm
-							</view>
-							<view class="red fz24 pr">
-								￥ <text class="fz30">599.00</text>
-								<view class="dfds_eer">
-									<van-stepper />
+							<image :src="sd.urlfm" mode="widthFix" class="fengmianer cz"></image>
+							<view class="dx_col pl20">
+								<view class="dian fz30 z3 titleerte">
+									{{sd.name}}
+								</view>
+								<view class="deer_dertx">
+									<view class="fz24 z9" v-if="sd.yixuan">
+										规格：{{sd.yixuan}}
+									</view>
+								</view>
+								<view class="red fz24 pr mt20">
+									￥ <text class="fz30">{{sd.danjie*sd.numner}}</text>
+									<view class="dfds_eer">
+										<van-stepper v-model="sd.numner" @change="dderxers(sd)" />
+									</view>
 								</view>
 							</view>
 						</view>
-					</view>
-					<view slot="right" class="sanduswwer">删除</view>
-				</van-swipe-cell>
+						<view slot="right" class="sanduswwer" @tap="delwuwud(sd.id,idx)">删除</view>
+					</van-swipe-cell>
+				</checkbox-group>
+			</view>
+			<view class="cen dsfdsfdedwwe " v-if="getwuwud.length<=0">
+				<image src="/static/img/no_msg.png" class="no_msg" mode="widthFix"></image>
+				<view class="fz28 z9">
+					暂无数据
+				</view>
 			</view>
 		</view>
-	<view class="pd">
-		<wntj></wntj>
-	</view>
-	
-		
+		<view class="pd">
+			<wntj></wntj>
+		</view>
 		<view class="dx_ddf_er btm pl20 dx_row bbm">
 			<view class="dx_col tui-checkbox dfddsfrewetrx">
 				<view class="sdf_der f_b cz">
-					<checkbox color="#fff" />
+					<checkbox-group @change="qunxuase">
+						<checkbox color="#fff" value="xz" :checked="issder" />
+					</checkbox-group>
 				</view>
 				<text class="fz28 cz z3 ml5">全选</text>
 			</view>
 			<view class="dx_col fz26 tr red dx_jz">
 				<view class="f_b cz fz24 dfxwweerrx">
-					￥233.50 <text class="z9 ml10">不含运费</text>
+					￥{{zongjia}} <text class="z9 ml10">不含运费</text>
 					<view class="fz22 z9">
-						总额：￥233.50 立减：￥0.00
+						总额：￥{{zongjia}} 立减：￥0.00
 					</view>
 				</view>
-				<view class="dsf_jh_dert ">
-					结算 
+				<view class="dsf_jh_dert " @tap="jiesuner">
+					结算
 				</view>
 			</view>
-		
 		</view>
-	
 	</view>
 </template>
 <script>
-
 	export default {
 		data() {
-			return {}
+			return {
+				getwuwud: [],
+				llseert: false,
+				zongjia: 0,
+				xzsd: [],
+				issder: false,
+				gxdingd: []
+			}
 		},
-		components: {
-		},
+		components: {},
 		methods: {
+			initss() {
+				this.issder = false
+				this.zongjia = 0
+			},
+			checkboxChange(e) {
+				let sxssv = e.detail
+				this.xzsd = sxssv.value
+				if (sxssv.value.length >= this.getwuwud.length) {
+					this.issder = true
+				} else {
+					this.issder = false
+				}
+				this.jsjg(sxssv.value)
+
+			},
+			qunxuase(e) { //全选按钮触发
+				if (e.detail.value[0]) {
+					let sddee = []
+					this.getwuwud.map((a, b) => {
+						sddee.push(b)
+						a.checked = true
+					})
+					this.xzsd = sddee
+					this.jsjg(sddee)
+				} else {
+					this.getwuwud.map(a => {
+						a.checked = false
+					})
+					this.jsjg([])
+				}
+			},
+			jsjg(array) { //计算价格
+				this.zongjia = 0
+				array.map(a => {
+					let sder = parseInt(a)
+					let ssewe = this.getwuwud[sder]
+					this.zongjia += (ssewe.danjie * ssewe.numner)
+					this.gxdingd.push(ssewe.oderid)
+				})
+				this.zongjia = this.zongjia.toFixed(2)
+
+			},
 			onChange(e) {
 				console.log(e)
+			},
+			async getdaas() {
+				this.getwuwud = await this.post("csscs/getwuwud")
+				this.llseert = true
+				uni.stopPullDownRefresh();
+			},
+			async delwuwud(id, idx) {
+				uni.showLoading({
+					title: "操作中"
+				})
+				await this.post("csscs/delwuwud", {
+					id: id
+				})
+				this.getwuwud.splice(idx, 1);
+				uni.showToast({
+					title: "删除成功"
+				})
+			},
+			async dderxers(e) {
+				await this.post("csscs/xiugaishuli", {
+					oderid: e.oderid,
+					numner: e.numner,
+					jiagegm: e.danjie * e.numner
+				})
+				this.jsjg(this.xzsd)
+			},
+			jiesuner() { //结算按钮触发
+				if (this.gxdingd.length <= 0) {
+					uni.showToast({
+						title: "请选择商品",
+						icon: "none"
+					})
+					return
+				}
+				let sdceer = this.gxdingd.join(",")
+				this.initss()
+				this.hf('/pages/commodity/querendingdan?oderid=' + sdceer)
 			}
 		},
 		onPullDownRefresh() {
-			setTimeout(function() {
-				uni.stopPullDownRefresh();
-			}, 1000);
+			this.getdaas()
+		},
+		onShow() {
+			this.getdaas()
 		},
 		mounted() {
-			this.load()
+			 this.load()
 		}
 	}
 </script>
@@ -127,12 +216,14 @@
 </style>
 
 <style scoped>
-	.red{
-		color:#F39F3A !important
+	.red {
+		color: #F39F3A !important
 	}
-	.sdf_der{
+
+	.sdf_der {
 		width: 50upx;
 	}
+
 	.jhg_dertt {
 		padding-top: 40upx;
 		padding-bottom: 150upx;
@@ -148,7 +239,7 @@
 		z-index: 1000;
 		padding-right: 30upx !important;
 		/* #ifdef H5 */
-			top: 88upx;
+		top: 88upx;
 		/* #endif */
 	}
 
@@ -193,7 +284,7 @@
 		bottom: 0;
 	}
 
-	
+
 
 	.sdfdf_eetreert {
 		line-height: 1.4 !important;
@@ -224,8 +315,7 @@
 		/* #endif */
 	}
 
-	.dx_ddf_er .dx_col {
-	}
+	.dx_ddf_er .dx_col {}
 
 	.dsf_jh_dert {
 		display: inline-block;
@@ -261,11 +351,16 @@
 	.gouxuansd.ab {
 		line-height: 60upx;
 	}
-	.dfxwweerrx{
+
+	.dfxwweerrx {
 		line-height: 1.5;
 	}
-	.dfddsfrewetrx{
+
+	.dfddsfrewetrx {
 		line-height: 100upx;
 	}
 
+	.deer_dertx {
+		height: 60upx;
+	}
 </style>
