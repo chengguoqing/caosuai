@@ -65,7 +65,8 @@
         "title" : "独行工匠",
         "domain" : "https://duxinggj.com/",
         "router" : {
-            "base" : "www/phone/qm/"
+            "base" : "www/phone/qm/",
+            "mode" : "hash"
         }
     }
 }

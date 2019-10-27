@@ -251,7 +251,7 @@
 		},
 
 		onLoad(e) {
-			this.load()
+			// this.load()
 			this.idwwe = e.id
 			this.getdata()
 		},
@@ -288,7 +288,7 @@
 				uni.stopPullDownRefresh();
 			},
 			async shwiwe() {
-				this.load()
+				//this.load()
 				this.$refs.ssd_eert.open()
 			},
 			closew(e) {

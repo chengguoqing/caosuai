@@ -1,5 +1,5 @@
 var url_d = "http://www.duxinggj.com/"
-// url_d = "http://192.168.1.102:8360/"
+ url_d = "http://192.168.1.102:8360/"
 exports.base = {
 	install: function(Vue, options) {
 		Vue.prototype.version = "9.2.1"

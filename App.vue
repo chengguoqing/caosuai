@@ -55,6 +55,7 @@
 			}
 		},
 		mounted() {
+			this.load()
 			this.getconfig()
 
 		}

@@ -104,11 +104,13 @@
 						a.checked = true
 					})
 					this.xzsd = sddee
+					this.issder = true
 					this.jsjg(sddee)
 				} else {
 					this.getwuwud.map(a => {
 						a.checked = false
 					})
+					this.issder = false
 					this.jsjg([])
 				}
 			},
@@ -168,10 +170,14 @@
 			this.getdaas()
 		},
 		onShow() {
+			this.gxdingd = []
+			this.getwuwud = []
+			this.xzsd = []
 			this.getdaas()
+			this.issder= false
 		},
 		mounted() {
-			 this.load()
+			//this.load()
 		}
 	}
 </script>

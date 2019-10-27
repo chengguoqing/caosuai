@@ -4,7 +4,7 @@
 			<view class="bgff mb20 w100 dfdsf_eert" v-for="sd in datas" @tap="hf('/pages/commodity/details?id='+sd.id)">
 				<image :src="sd.fm" class="ssd_dedd cz"></image>
 				<view class="sddf_deert">
-					<view class="fz30 z3 dian sdfdf_eetreert pd">
+					<view class="fz30 z3 dianer sdfdf_eetreert pd">
 						{{sd.name}}
 					</view>
 					<view class="fz26 z9 pd dian">

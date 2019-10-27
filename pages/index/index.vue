@@ -72,7 +72,7 @@
 			}
 		},
 		mounted() {
-			this.load()
+			
 			this.getdata()
 		}
 	}

@@ -74,13 +74,16 @@
 				xddreer.jiagegm = ''+this.jiage*this.shuliang
 				xddreer.isgouwuce = ty
 				xddreer.name = this.sd.name
-				xddreer.danjie=this.sd.jiage
+				xddreer.danjie=this.yuxuans?this.jiage:this.sd.jiage
 				this.$emit('lijigmd',xddreer)
 				
 			}
 		},
 		mounted() {
 			this.jiage = this.sd.jiage
+			this.sd.sd_drtyx.map(a => {
+				a.cls = ""
+			})
 		}
 	}
 </script>
