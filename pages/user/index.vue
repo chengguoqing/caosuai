@@ -5,6 +5,7 @@
 				<image :src="userinfo.headimgurl" class="user_iconr" ></image>
 				<view class="dx_col user_name_er pr">
 					<view class="fz36 cf" >
+						
 						账号：{{userinfo.nickname}}
 					</view>
 					<view class="z9 fz26 mt5 cf">
@@ -15,7 +16,6 @@
 					</view>
 				</view>
 			</view>
-
 			<!-- <image src="../../static/img/right.png" class="righyswweer" mode="widthFix"></image> -->
 		</view>
 		<view class="pd">
@@ -124,6 +124,7 @@
 			this.getsdsd()
 		},
 		mounted() {
+			
 			this.getdaa()
 		}
 	}

@@ -168,7 +168,11 @@
 		position: fixed;
 		width: 100%;
 		left: 0;
-		top: 88upx;
+		top: 0;
+		/* #ifdef H5 */
+			top: 88upx;
+		/* #endif */
+		
 		height: 80upx;
 		line-height: 80upx;
 		background: #fff;

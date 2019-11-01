@@ -1,5 +1,8 @@
 <script>
-	var wx = require('weixin-js-sdk');
+	// #ifdef H5
+		var wx = require('weixin-js-sdk');
+	// #endif
+	
 	export default {
 		methods: {
 			async getconfig() {
@@ -55,8 +58,11 @@
 			}
 		},
 		mounted() {
-			this.load()
-			this.getconfig()
+			// this.load()
+			// #ifdef H5
+				this.getconfig()
+			// #endif
+			
 
 		}
 	}

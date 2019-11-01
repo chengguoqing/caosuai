@@ -15,7 +15,7 @@
 			</view>
 		</view>
 		<view class="mt20">
-			<text v-for="sd in sd.sd_drtyx" class="sdfdsf_dseer" :class="sd.cls" @tap="ssd_der(sd)">{{sd.sku_name}}</text>
+			<text v-for="(sdwe,idx) in sd.sd_drtyx" class="sdfdsf_dseer" :class="sdwe.cls" @tap="ssd_der(sdwe,idx)" :key="idx">{{sdwe.cls}}{{sdwe.sku_name}}</text>
 		</view>
 		
 		<view class="fz30 z3">
@@ -48,13 +48,13 @@
 		},
 		components: {},
 		methods: {
-			ssd_der(sd) {
+			ssd_der(sdwe,idx) {
 				this.sd.sd_drtyx.map(a => {
 					a.cls = ""
 				})
-				sd.cls = "act"
-				this.jiage =sd.cbjia 
-				this.yuxuans = sd.sku_name
+				this.sd.sd_drtyx[idx].cls = "act"
+				this.jiage =sdwe.cbjia 
+				this.yuxuans = sdwe.sku_name
 			},
 			lisdsdr(ty){
 				
@@ -145,9 +145,9 @@
 	}
 
 	.sdfdsf_dseer.act {
-		background: #fff;
-		color: #ffc11c;
-		border-color: #ffc11c;
+		background: #fff !important;
+		color: #ffc11c  !important;
+		border-color: #ffc11c  !important;
 
 	}
 </style>

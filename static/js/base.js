@@ -1,5 +1,5 @@
 var url_d = "http://www.duxinggj.com/"
- url_d = "http://192.168.1.102:8360/"
+//url_d = "http://192.168.1.102:8360/"
 exports.base = {
 	install: function(Vue, options) {
 		Vue.prototype.version = "9.2.1"
@@ -232,7 +232,7 @@ exports.base = {
 						url: url_d + 'weixin/getuserinfo',
 						method: "get",
 						data: {
-							type:1,
+							type: 1,
 							code: uni.getStorageSync('codes')
 						},
 						success: (res) => {
@@ -250,6 +250,28 @@ exports.base = {
 
 			}
 		}
+
+		Vue.prototype.loadapp = function(call) {
+			uni.login({
+				provider: 'weixin',
+				success: function(loginRes) {
+					// th.denghsd = JSON.stringify(loginRes.authResult)
+					uni.getUserInfo({
+						provider: 'weixin',
+						lang: "zh_CN",
+						success: function(infoRes) {
+							let ssdee = infoRes.userInfo
+							ssdee.nickname = ssdee.nickName
+							ssdee.headimgurl = ssdee.avatarUrl
+							ssdee.dengji = 0
+							ssdee.jifen = 0
+							uni.setStorageSync('userinfo', ssdee)
+						}
+					});
+				}
+			});
+		}
+
 
 
 

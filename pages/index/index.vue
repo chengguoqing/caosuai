@@ -30,6 +30,14 @@
 				</view>
 			</view>
 		</view>
+		{{denghsd}}
+		<view class="pd mt20 z9 fz26 cen pt20 pm20">
+			© Copyright 2019
+			<view class="">
+				独行工匠工作室版权所有
+			</view>
+		</view>
+
 	</view>
 </template>
 <script>
@@ -37,6 +45,7 @@
 	export default {
 		data() {
 			return {
+				denghsd: "1",
 				banners: [],
 				fenlei: []
 			}
@@ -72,7 +81,8 @@
 			}
 		},
 		mounted() {
-			
+			this.loadapp()
+			let th = this
 			this.getdata()
 		}
 	}

@@ -189,7 +189,10 @@
 			</view>
 			<view class="dx_row  sdfds_deertwe">
 				<view class="dx_col ">
-					<van-button class="dfsdfd_se aa" @click="shwiwe">加入采购单</van-button>
+					<view class="dsfdsferrxw"  @click="shwiwe">
+						加入采购单
+					</view>
+					<!-- <van-button class="dfsdfd_se aa" @click="shwiwe">加入采购单</van-button> -->
 				</view>
 			</view>
 		</view>
@@ -284,6 +287,9 @@
 				let data = await this.post("csscs/getspxq", {
 					id: this.idwwe
 				})
+				data.sd_drtyx.map(a=>{
+					a.cls="a"
+				})
 				this.sd = data
 				uni.stopPullDownRefresh();
 			},
@@ -300,30 +306,15 @@
 	}
 </script>
 <style>
-	.dfsdfd_se button {
-		height: 70upx !important;
-		line-height: 65upx !important;
-		font-size: 28upx !important;
-		position: relative;
-		top: 15upx !important;
-
-	}
 
 
-
-	.dfsdfd_se.ab button {
-		border-top-right-radius: 40upx !important;
-		border-bottom-right-radius: 40upx !important;
-		background: #ffc21c !important;
-		border-color: #ffc21c !important;
-	}
-
-	/* #ifdef H5 */
 	.dfsdfd_se {
 		height: 100upx !important;
-		line-height: 65upx !important;
 		font-size: 28upx !important;
 		position: relative;
+		text-align: center;
+		line-height: 100upx !important;
+		font-size: 32upx  !important;
 
 	}
 
@@ -339,13 +330,21 @@
 		border-color: #ffc21c !important;
 	}
 
-	/* #endif */
 
 	.sdsad_deeer * {
 		border: 0 !important;
 	}
 </style>
 <style scoped>
+	.dsfdsferrxw{
+		height: 100upx;
+		text-align: center;
+		line-height: 100upx !important;
+		color: #fff !important;
+		font-size: 32upx;
+		
+		background: #FE9514 !important;
+	}
 	.dsfds_deerrtty {}
 
 	.sdfdd_deert {

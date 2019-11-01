@@ -88,7 +88,10 @@
 	</view>
 </template>
 <script>
+	// #ifdef H5
 	var wx = require('weixin-js-sdk');
+	// #endif
+	
 	export default {
 		data() {
 			return {
@@ -160,6 +163,7 @@
 				wx_cd = wx_cd.data
 				uni.hideLoading();
 				let th = this
+				// #ifdef H5
 				wx.chooseWXPay({
 					timestamp: wx_cd.timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
 					nonceStr: wx_cd.nonceStr, // 支付签名随机串，不长于 32 位
@@ -170,6 +174,8 @@
 						th.goynsd()
 					}
 				});
+				// #endif
+				
 			}
 		}
 	}
