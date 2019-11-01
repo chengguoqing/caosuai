@@ -6,8 +6,6 @@
 			</view>
 		</view>
 		<view v-if="ssde_dert">
-
-
 			<view class="mt20 bgff pd pt20 pm20 yy" v-for="(sd,idx) in listde">
 				<view class="pm20 fz26 dx_row">
 					<view class="dx_col ">
@@ -124,6 +122,10 @@
 				this.idx_e = idx
 				this.listde = []
 				this.page = 1
+				this.ssde_dert=false
+				uni.showLoading({
+					title:"操作中..."
+				})
 				this.getlist()
 			},
 			quzifu(oderid) {

@@ -91,7 +91,7 @@
 	// #ifdef H5
 	var wx = require('weixin-js-sdk');
 	// #endif
-	
+
 	export default {
 		data() {
 			return {
@@ -136,7 +136,7 @@
 					shouhuodiz: JSON.stringify(this.dizhi)
 				})
 				uni.showLoading({
-					title:"操作中..."
+					title: "操作中..."
 				})
 				setTimeout(a => {
 					uni.hideLoading()
@@ -157,7 +157,12 @@
 				uni.showLoading({
 					title: '加载中....'
 				});
+				let sddrr = ""
+				// #ifdef APP-PLUS 
+				sddrr = "APP"
+				// #endif
 				let wx_cd = await this.get("weixin/zhifu", {
+					trade_type: sddrr,
 					jiner: this.zongjia
 				})
 				wx_cd = wx_cd.data
@@ -175,7 +180,19 @@
 					}
 				});
 				// #endif
-				
+				// #ifdef APP-PLUS ||MP-WEIXIN
+				uni.requestPayment({
+					provider: 'wxpay',
+					orderInfo: 'orderInfo', //微信、支付宝订单数据
+					success: function(res) {
+						console.log('success:' + JSON.stringify(res));
+					},
+					fail: function(err) {
+						console.log('fail:' + JSON.stringify(err));
+					}
+				});
+				// #endif
+
 			}
 		}
 	}

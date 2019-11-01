@@ -170,6 +170,7 @@
 			this.getdaas()
 		},
 		onShow() {
+			this.llseert = false
 			this.gxdingd = []
 			this.getwuwud = []
 			this.xzsd = []

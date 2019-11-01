@@ -2,16 +2,16 @@
 	<view class="user_page pm20">
 		<view class="pr sd_jh_deer pd">
 			<view class="pd pt20 pm10 dx_row">
-				<image :src="userinfo.headimgurl" class="user_iconr" ></image>
+				<image :src="userinfo.headimgurl" class="user_iconr"></image>
 				<view class="dx_col user_name_er pr">
-					<view class="fz36 cf" >
-						
-						账号：{{userinfo.nickname}}
+					<view class="fz36 cf">
+
+						账号：{{userinfo.nickname||''}}
 					</view>
 					<view class="z9 fz26 mt5 cf">
-						会员等级：{{userinfo.dengji}}
+						会员等级：{{userinfo.dengji||''}}
 						<view class="f_b sdf_errtt fz24 ml10">
-							积分{{userinfo.jifen}}
+							积分{{userinfo.jifen||''}}
 						</view>
 					</view>
 				</view>
@@ -85,6 +85,11 @@
 	</view>
 </template>
 <script>
+	import {
+		mapState,
+		mapMutations,
+		mapActions
+	} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -98,34 +103,56 @@
 					name: "关注",
 					num: "0"
 				}],
-				userinfo: "",
 				sd: ""
 			}
 		},
+		computed: {
+			...mapState(["userinfo"])
+		},
 		onPullDownRefresh() {
-			setTimeout(function() {
+			setTimeout(a => {
+				this.getdaa()
 				uni.stopPullDownRefresh();
 			}, 1000);
 		},
 		methods: {
+			...mapMutations(["logout"]),
+			...mapActions(['getuserinfo']),
 			oute() {
 				uni.clearStorage();
+				this.logout()
+				// #ifdef H5
 				window.location.href = 'http://www.duxinggj.com/www/phone/qm'
-			},
-			async getdaa() {
-				this.userinfo = uni.getStorageSync('userinfo')
+				// #endif
+				// #ifdef APP-PLUS || MP-WEIXIN
+				uni.switchTab({
+					url: '/pages/index/index'
+				});
+				// #endif
 
 			},
 			async getsdsd() {
+				
 				this.sd = await this.post("csscs/dingdandj")
 			}
 		},
 		onShow(e) {
-			this.getsdsd()
+			uni.showLoading({
+				title:"加载中..."
+			})
+			if (!this.userinfo) {
+				setTimeout(a=>{
+					uni.hideLoading()
+					this.getuserinfo()
+				},1500)
+			}else{
+				this.getsdsd()
+			}
+			
 		},
 		mounted() {
-			
-			this.getdaa()
+
+
 		}
 	}
 </script>

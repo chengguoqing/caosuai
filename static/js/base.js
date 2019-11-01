@@ -252,24 +252,26 @@ exports.base = {
 		}
 
 		Vue.prototype.loadapp = function(call) {
-			uni.login({
-				provider: 'weixin',
-				success: function(loginRes) {
-					// th.denghsd = JSON.stringify(loginRes.authResult)
-					uni.getUserInfo({
-						provider: 'weixin',
-						lang: "zh_CN",
-						success: function(infoRes) {
-							let ssdee = infoRes.userInfo
-							ssdee.nickname = ssdee.nickName
-							ssdee.headimgurl = ssdee.avatarUrl
-							ssdee.dengji = 0
-							ssdee.jifen = 0
-							uni.setStorageSync('userinfo', ssdee)
-						}
-					});
-				}
-			});
+			if (!uni.getStorageSync('userinfo').nickname) {
+				uni.login({
+					provider: 'weixin',
+					success: function(loginRes) {
+						// th.denghsd = JSON.stringify(loginRes.authResult)
+						uni.getUserInfo({
+							provider: 'weixin',
+							lang: "zh_CN",
+							success: function(infoRes) {
+								let ssdee = infoRes.userInfo
+								ssdee.nickname = ssdee.nickName
+								ssdee.headimgurl = ssdee.avatarUrl
+								ssdee.dengji = 0
+								ssdee.jifen = 0
+								uni.setStorageSync('userinfo', ssdee)
+							}
+						});
+					}
+				});
+			}
 		}
 
 

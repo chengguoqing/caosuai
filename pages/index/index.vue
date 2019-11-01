@@ -81,9 +81,9 @@
 			}
 		},
 		mounted() {
-			this.loadapp()
 			let th = this
 			this.getdata()
+
 		}
 	}
 </script>
